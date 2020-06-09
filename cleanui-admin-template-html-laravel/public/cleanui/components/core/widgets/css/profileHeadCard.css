@@ -1,0 +1,28 @@
+.cui-profile-head-card {
+    border: 0 solid #fff;
+    background: #fff;
+    position: relative;
+    border-radius: 3px;
+}
+
+.cui-profile-head-card-head {
+    height: 19.23rem;
+    background: #f2f4f8 center center;
+    background-size: cover;
+    border-radius: 0.25rem;
+    line-height: 1.1;
+    padding: 1.92rem 2.3rem;
+}
+
+.cui-profile-head-card-left {
+    float: left;
+    padding-left: 1.53rem;
+    margin-top: -3.85rem;
+}
+
+.cui-profile-head-card-right {
+    margin-left: 10.76rem;
+    padding-top: 3.07rem;
+    padding-right: 1.53rem;
+    padding-bottom: 1px;
+}

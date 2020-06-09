@@ -1,0 +1,57 @@
+.cui-progress-card-head {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
+    margin-bottom: 1.15rem;
+}
+
+.cui-progress-card-name {
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
+}
+
+.cui-progress-card-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.38rem;
+}
+
+.cui-progress-card-note {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.cui-progress-card-value {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.76rem;
+    line-height: 1;
+    margin-top: 0.76rem;
+    margin-bottom: 0.76rem;
+    margin-left: auto;
+}
+
+.cui-progress-card-line {
+    margin-bottom: 0.38rem;
+    height: 0.61rem;
+}
+
+.cui-progress-card-line-descr {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    color: #b8beca;
+}
