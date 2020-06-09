@@ -1,0 +1,21 @@
+@import '../../common/css/mixins';
+
+.cui-slider-card {
+  &-body {
+    display: block;
+    height: rem(140);
+    position: relative;
+    width: 100%;
+    padding: rem(25) rem(30);
+    overflow: hidden;
+  }
+  &-icon {
+    display: inline-block;
+    font-size: rem(80);
+    position: absolute;
+    z-index: 1;
+    bottom: rem(-40);
+    right: rem(-25);
+    opacity: 0.4;
+  }
+}

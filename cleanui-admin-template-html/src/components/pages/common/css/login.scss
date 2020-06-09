@@ -1,0 +1,184 @@
+@import '../../../core/common/css/mixins';
+
+.cui-login {
+  background-size: cover;
+  background-color: $gray-lighten-more;
+  transition: background 0.5s;
+
+  &-fullscreen {
+    position: fixed;
+    z-index: 20000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  &-block {
+    padding: rem(80) rem(40) rem(80);
+    width: 100%;
+    align-self: center;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: $md-max-width) {
+      padding: rem(80) rem(20) rem(80);
+    }
+
+    &-inner {
+      min-width: rem(300);
+      max-width: rem(500);
+      margin: 0 auto;
+      padding: rem(50) rem(40) rem(20);
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: $white;
+      position: relative;
+    }
+    &-form {
+      position: relative;
+      z-index: 2;
+    }
+    &-promo {
+      padding: 0 0 rem(60);
+      max-width: rem(800);
+      font-size: rem(16);
+      line-height: rem(26);
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &-sidebar {
+      display: none;
+    }
+
+    @media (min-width: $md-min-width) {
+      &-extended {
+        .cui-login-block-inner {
+          max-width: rem(800);
+          padding: rem(80) rem(80) rem(50);
+        }
+
+        .cui-login-block-form {
+          margin-right: rem(300);
+        }
+
+        .cui-login-block-sidebar {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: rem(300);
+          padding: rem(80) rem(40);
+          color: $white;
+          background: $black-lighten;
+
+          &-item {
+            padding-left: rem(20);
+            border-left: 2px solid $text;
+            margin-bottom: rem(20);
+            color: $text;
+          }
+          &-title {
+            margin-bottom: rem(20);
+            line-height: 1.5;
+          }
+          &-place {
+            font-size: rem(14);
+            font-weight: bold;
+            position: absolute;
+            z-index: 2;
+            bottom: rem(40);
+            left: rem(40);
+          }
+        }
+      }
+    }
+  }
+
+  &-header {
+    align-self: flex-start;
+    width: 100%;
+    color: $white;
+    padding: rem(40);
+
+    @media (max-width: $md-max-width) {
+      padding: rem(40) rem(20) rem(40);
+    }
+
+    &-logo {
+      img {
+        max-width: rem(150);
+        max-height: rem(50);
+      }
+    }
+    &-menu {
+      text-align: right;
+      margin-top: rem(10);
+
+      @media (max-width: $md-max-width) {
+        text-align: left;
+      }
+
+      ul {
+        font-size: rem(16);
+        li {
+          margin-right: rem(20);
+          text-transform: uppercase;
+          &:last-child {
+            margin-right: 0;
+          }
+          &.active {
+            a {
+              border-bottom: 1px solid rgba($white, 0.5);
+            }
+          }
+          a {
+            color: $white !important;
+            line-height: 1.4;
+            display: inline-block;
+            margin-right: rem(10);
+            font-weight: bold;
+            &:hover {
+              border-bottom: 1px solid rgba($white, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    align-self: flex-end;
+    width: 100%;
+    color: white;
+    padding: rem(40);
+
+    @media (max-width: $md-max-width) {
+      padding: rem(40) rem(20) rem(40);
+    }
+
+    ul {
+      margin-bottom: 0;
+      li {
+        margin-right: rem(20);
+        text-transform: uppercase;
+        &:last-child {
+          margin-right: 0;
+        }
+        a {
+          color: $white;
+          opacity: 0.7;
+          line-height: 1.4;
+          display: inline-block;
+          margin-right: rem(10);
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

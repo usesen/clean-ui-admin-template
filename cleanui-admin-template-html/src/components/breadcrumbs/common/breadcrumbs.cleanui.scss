@@ -1,0 +1,17 @@
+@import '../../core/common/css/mixins';
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/* BREADCRUMBS */
+
+.cui-breadcrumbs {
+  padding: rem(10) rem(20);
+  color: $black;
+  &-bg {
+    background: $white;
+    border-bottom: 1px solid $gray-border;
+  }
+
+  @media (max-width: $sm-max-width) {
+    padding: rem(15);
+  }
+}

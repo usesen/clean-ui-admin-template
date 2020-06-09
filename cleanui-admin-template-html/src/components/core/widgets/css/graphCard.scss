@@ -1,0 +1,164 @@
+@import '../../common/css/mixins';
+
+.cui-graph-card {
+  &-lonely-value {
+    font-size: rem(33);
+    font-weight: 700;
+  }
+
+  &-chartist {
+    position: relative;
+
+    &-centered {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-primary {
+      .ct-series-a {
+        .ct-area {
+          fill: $primary !important;
+        }
+
+        .ct-line {
+          stroke: $primary !important;
+        }
+
+        .ct-point {
+          stroke: $primary !important;
+        }
+      }
+    }
+
+    &-success {
+      .ct-series-a {
+        .ct-area {
+          fill: $success !important;
+        }
+
+        .ct-line {
+          stroke: $success !important;
+        }
+
+        .ct-point {
+          stroke: $success !important;
+        }
+      }
+    }
+
+    &-warning {
+      .ct-series-a {
+        .ct-area {
+          fill: $warning !important;
+        }
+
+        .ct-line {
+          stroke: $warning !important;
+        }
+
+        .ct-point {
+          stroke: $warning !important;
+        }
+      }
+    }
+
+    &-danger {
+      .ct-series-a {
+        .ct-area {
+          fill: $danger !important;
+        }
+
+        .ct-line {
+          stroke: $danger !important;
+        }
+
+        .ct-point {
+          stroke: $danger !important;
+        }
+      }
+    }
+
+    &-default {
+      .ct-series-a {
+        .ct-area {
+          fill: $default !important;
+        }
+
+        .ct-line {
+          stroke: $default !important;
+        }
+
+        .ct-point {
+          stroke: $default !important;
+        }
+      }
+    }
+  }
+
+  &-table {
+    thead {
+      th,
+      td {
+        border: none;
+        color: $text;
+        border-bottom-style: dashed !important;
+      }
+    }
+
+    td {
+      color: $gray-darken;
+      font-weight: 300;
+      border-top-style: dashed;
+    }
+  }
+
+  &-donut-chartist {
+    &-with-center-data {
+      .ct-label-pie {
+        display: none;
+        font-size: rem(30);
+        font-weight: 700;
+        color: $gray;
+        transform: translate(1%, 6%);
+      }
+
+      .ct-label-pie:first-of-type {
+        display: block;
+      }
+
+      .ct-slice-donut {
+        transition: opacity 0.2s ease-in-out;
+      }
+    }
+
+    &-example {
+      .ct-series-a path {
+        stroke: $success;
+      }
+
+      .ct-series-b path {
+        stroke: $primary;
+      }
+
+      .ct-series-c path {
+        stroke: $danger;
+      }
+    }
+  }
+
+  &-donut-chartist-area-1 {
+    height: rem(170);
+  }
+
+  &-donuts {
+    color: $gray-darken;
+
+    &-centered {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

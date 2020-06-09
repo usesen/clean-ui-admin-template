@@ -1,0 +1,656 @@
+@import '../../core/common/css/mixins';
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/* MENU LEFT */
+
+.cui-menu-left {
+  flex: 0 0 256px;
+  max-width: 256px;
+  min-width: 256px;
+  width: 256px;
+  position: relative;
+  z-index: 100;
+  font-size: 13px;
+  transition: transform 0.3s;
+
+  @at-root {
+    // box shadow option
+    .cui-menu-left-shadow {
+      @media (min-width: $sm-min-width) {
+        .cui-menu-left {
+          &-inner {
+            box-shadow: 0 0 200px -30px rgba($black-lighten-more, 0.4);
+            border: none !important;
+          }
+        }
+      }
+    }
+  }
+
+  &-inner {
+    position: fixed;
+    width: 256px;
+    height: 100%;
+    overflow: hidden;
+    background: $menuBg;
+    transition: width 0.3s;
+    @media (max-width: $sm-max-width) {
+      overflow-y: auto;
+    }
+  }
+
+  // logo styles
+  &-logo {
+    height: 64px;
+    display: block;
+    background: $menuBg-darken;
+    padding: 13px 20px 15px 22px;
+    overflow: hidden;
+    &-default {
+      display: block;
+    }
+    &-toggled {
+      display: none;
+    }
+    img {
+      height: 36px;
+    }
+  }
+
+  &-buy-pro {
+    padding: rem(20);
+    background: $gray-border;
+    border-radius: 3px;
+    text-align: center;
+    margin: rem(20);
+    overflow: hidden;
+  }
+
+  &-trigger {
+    cursor: pointer;
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    width: 256px;
+    height: 48px;
+    background: #002140;
+    transition: width 0.3s;
+    &:after {
+      content: '';
+      display: block;
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      border-left: 2px solid darken($gray-darken, 15%);
+      border-top: 2px solid darken($gray-darken, 15%);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-scroll {
+    position: absolute;
+    top: 64px;
+    height: calc(100% - 64px - 48px);
+    width: 100%;
+  }
+
+  // ul list
+  &-list {
+    list-style: none;
+    padding-left: 0;
+    &-root {
+      margin: rem(20) 0;
+    }
+  }
+
+  // menu item divider
+  &-divider {
+    background: $black-lighten-more;
+    height: 1px;
+    margin: 0 rem(23) rem(8);
+  }
+
+  // menu item
+  &-item {
+    margin: rem(4) 0 rem(8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    > a {
+      position: relative;
+      min-height: rem(40);
+      padding: rem(9) rem(60) rem(9) rem(24);
+      display: block;
+      color: $gray-darken;
+
+      &:hover {
+        color: $white;
+
+        .cui-menu-left-icon {
+          color: $white;
+        }
+      }
+
+      // inner badge fitting
+      > .badge {
+        margin-top: rem(3);
+      }
+    }
+
+    // menu item states
+    &-active {
+      > a,
+      &:hover,
+      &:active,
+      &:focus {
+        background: $primary;
+        color: $white;
+
+        > .cui-menu-left-icon {
+          color: $white;
+        }
+      }
+    }
+
+    &-disabled {
+      > a {
+        cursor: default;
+        background: transparent !important;
+        color: $gray-darken !important;
+        opacity: 0.4;
+        > .cui-menu-left-icon {
+          color: $text !important;
+        }
+      }
+    }
+  }
+
+  // menu item icon
+  &-icon {
+    position: absolute;
+    width: rem(20);
+    text-align: center;
+    top: rem(13);
+    right: rem(20);
+    color: $text;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
+  }
+
+  // submenu styles
+  &-submenu {
+    // submenu items padding
+    .cui-menu-left-item {
+      > a {
+        padding-left: rem(48);
+      }
+    }
+
+    // submenu ul list
+    > .cui-menu-left-list {
+      display: none;
+      background: $menuBg-darken;
+    }
+
+    // submenu menu item modifier (adds arrow marker)
+    &.cui-menu-left-item {
+      > a {
+        &:after,
+        &:before {
+          content: '';
+          position: absolute;
+          right: 50px;
+          top: 20px;
+          vertical-align: baseline;
+          background: $gray-darken;
+          width: 6px;
+          height: 2px;
+          border-radius: 2px;
+          transition: all 0.3s;
+        }
+
+        &:after {
+          transform: rotate(45deg) translateX(-2px);
+        }
+
+        &:before {
+          transform: rotate(-45deg) translateX(2px);
+        }
+
+        &:hover {
+          &:after,
+          &:before {
+            background: $primary;
+          }
+        }
+      }
+    }
+
+    // toggled submenu
+    &-toggled {
+      // menu item
+      &.cui-menu-left-item {
+        background: $menuBg-darken;
+
+        > a {
+          color: $white;
+
+          .cui-menu-left-icon {
+            color: $white;
+          }
+
+          &:after {
+            transform: rotate(-45deg) translateX(-2px);
+          }
+
+          &:before {
+            transform: rotate(45deg) translateX(2px);
+          }
+        }
+
+        > .cui-menu-left-icon {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &-handler {
+    position: absolute;
+    right: -41px;
+    top: 72px;
+    width: 41px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 0;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #001529;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+    &-icon {
+      width: 14px;
+      height: 2px;
+      background: #fff;
+      position: relative;
+
+      &:after,
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background: #fff;
+        width: 100%;
+        height: 2px;
+      }
+
+      &:before {
+        top: -5px;
+      }
+
+      &:after {
+        top: 5px;
+      }
+    }
+  }
+
+  // toggled menu
+  @media (min-width: $sm-min-width) {
+    @at-root {
+      .cui-menu-left-toggled {
+        .cui-menu-left {
+          flex: 0 0 80px;
+          max-width: 80px;
+          min-width: 80px;
+          width: 80px;
+
+          .cui-menu-left-inner {
+            width: 80px;
+          }
+
+          .cui-menu-left-logo {
+            &-default {
+              display: none;
+            }
+            &-toggled {
+              display: block;
+            }
+          }
+
+          .cui-menu-left-list-root {
+            > * {
+              display: none;
+            }
+            > .cui-menu-left-item {
+              display: block;
+              > a {
+                display: block;
+                > * {
+                  display: none;
+                }
+                &:after,
+                &:before {
+                  display: none;
+                }
+                > .cui-menu-left-icon {
+                  right: 35px;
+                  display: inline;
+                }
+              }
+
+              > .cui-menu-left-list {
+                overflow: hidden;
+                height: 0;
+              }
+            }
+
+            > .cui-menu-left-divider {
+              display: block;
+            }
+
+            .cui-menu-left-item-special {
+              display: none;
+            }
+          }
+
+          .cui-menu-left-trigger {
+            width: 80px;
+            &:after {
+              left: 40%;
+              transform: rotate(-225deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // toggled menu hover
+  @at-root {
+    .cui-menu-left-toggled {
+      .cui-menu-left:hover {
+        .cui-menu-left-inner {
+          width: 256px;
+        }
+
+        .cui-menu-left-list-root {
+          > * {
+            display: block;
+          }
+
+          > .cui-menu-left-item {
+            > a {
+              > * {
+                display: inline-block;
+              }
+              &:after,
+              &:before {
+                display: block;
+              }
+              > .cui-menu-left-icon {
+                right: rem(20);
+                display: inline;
+              }
+            }
+
+            &.cui-menu-left-submenu-toggled {
+              > .cui-menu-left-list {
+                overflow: visible;
+                height: auto;
+              }
+            }
+          }
+
+          .cui-menu-left-item-special {
+            display: block;
+          }
+        }
+
+        .cui-menu-left-logo {
+          &-default {
+            display: block;
+          }
+          &-toggled {
+            display: none;
+          }
+        }
+
+        .cui-menu-left-trigger {
+          width: 256px;
+          &:after {
+            left: 50%;
+            transform: rotate(-225deg);
+          }
+        }
+      }
+    }
+  }
+
+  // mobile menu
+  @media (max-width: $sm-max-width) {
+    @at-root {
+      .cui-menu-left {
+        position: fixed;
+        z-index: 9999;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: visible;
+        transform: translateX(-256px);
+
+        .cui-menu-left-trigger {
+          display: none;
+        }
+
+        .cui-menu-left-scroll {
+          height: calc(100% - 64px);
+        }
+
+        .cui-menu-left-handler {
+          display: flex;
+        }
+      }
+
+      .cui-menu-left-toggled-mobile {
+        .cui-menu-left {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  // colorful menu
+  &-list-root {
+    > .cui-menu-left-item {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: transparent;
+      }
+
+      &.cui-menu-left-colorful-primary {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $primary;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-secondary {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $secondary;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-default {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $default;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-info {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $info;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-success {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $success;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-warning {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $warning;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-danger {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $danger;
+          }
+        }
+      }
+      &.cui-menu-left-colorful-yellow {
+        &:hover,
+        &.cui-menu-left-submenu-toggled,
+        &.cui-menu-left-item-active {
+          &:before {
+            background-color: $yellow;
+          }
+        }
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// backdrop block for menu mobile view
+
+@media (max-width: $sm-max-width) {
+  // backdrop block styles
+  .cui-menu-left-backdrop {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: $black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+
+    // visible styles
+    .cui-menu-left-toggled-mobile & {
+      opacity: 0.4;
+      visibility: visible;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  JSCROLLPNAE CUSTOM STYLES */
+
+.cui-menu-left {
+  .jspScrollable {
+    outline: none;
+    &:hover {
+      .jspVerticalBar {
+        opacity: 0.7;
+        @include transition-very-slow();
+      }
+      .jspHorizontalBar {
+        opacity: 0.7;
+        @include transition-very-slow();
+      }
+    }
+    .jspTrack {
+      left: -2px !important;
+    }
+    .jspVerticalBar {
+      background: transparent;
+      width: 3px;
+      opacity: 0;
+      @include transition-slow();
+    }
+    .jspHorizontalBar {
+      background: transparent;
+      height: 4px;
+      opacity: 0;
+      bottom: 1px;
+      @include transition-slow();
+      .jspDrag:after {
+        background: $text-darken-more;
+        top: 0;
+        bottom: 0;
+      }
+    }
+    .jspPane,
+    .jspContainer {
+      width: 100% !important;
+    }
+    .jspCap {
+      display: none;
+    }
+    .jspTrack {
+      background: transparent;
+      position: relative;
+      width: 2px;
+      left: -5px;
+    }
+    .jspDrag {
+      background: transparent;
+      position: relative;
+      top: 0;
+      left: -1px;
+      width: 5px;
+      cursor: pointer;
+      border-radius: 0;
+      &:after {
+        display: block;
+        content: '';
+        background: $text-darken-more;
+        position: absolute;
+        width: 100%;
+        top: 4px;
+        bottom: 4px;
+        border-radius: 20px;
+      }
+    }
+  }
+}

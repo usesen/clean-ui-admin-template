@@ -1,0 +1,274 @@
+@import '../../core/common/css/mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  STYLES FOR "GITHUB" MODULE */
+
+.cui-github-explore {
+  max-width: rem(1000);
+  margin: 0 auto;
+
+  &-descr {
+    margin-bottom: rem(14);
+  }
+
+  &-descr-text {
+    display: inline-block;
+    margin-bottom: rem(7);
+  }
+
+  &-overall-data {
+    border: 1px solid $gray-border;
+    border-radius: 4px;
+    padding: rem(7);
+    margin-bottom: rem(12);
+  }
+
+  &-overall-data-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 100%;
+  }
+
+  &-overall-data-item {
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &-sort-left {
+    float: left;
+    margin-bottom: rem(12);
+
+    @media (max-width: $md-max-width) {
+      float: none;
+    }
+
+    .dropdown-toggle {
+      padding-top: rem(2.6);
+      padding-bottom: rem(2.6);
+      border: 1px solid $gray;
+    }
+  }
+
+  &-sort-right {
+    float: right;
+    margin-bottom: rem(12);
+
+    @media (max-width: $md-max-width) {
+      float: none;
+    }
+  }
+
+  &-sort-option {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: rem(7);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-nav {
+    border-top: 1px solid rgba($black, 0.1);
+    border-bottom: 1px solid rgba($black, 0.1);
+  }
+
+  &-nav-icon {
+    width: 17px;
+    padding-right: 0 !important;
+  }
+
+  &-nav-time {
+    text-align: right;
+  }
+}
+
+.cui-github-discuss {
+  max-width: rem(1000);
+  margin: 0 auto;
+
+  &-header {
+    position: relative;
+    border-bottom: 1px solid rgba($black, 0.125);
+    padding-bottom: rem(15);
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &-title-text {
+    font-size: rem(32);
+    margin-right: auto;
+  }
+
+  &-open {
+    margin-top: rem(6);
+    margin-bottom: rem(10);
+  }
+
+  &-status {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: rem(10);
+  }
+
+  &-meta-text {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: rem(6);
+  }
+
+  .fa-check-circle-o {
+    font-size: rem(16);
+  }
+
+  &-comments-count,
+  &-create-date {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &-sidebar-item {
+    padding-top: rem(15);
+    border-bottom: 1px solid rgba($black, 0.15);
+    padding-bottom: rem(15);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-sidebar-head {
+    font-size: rem(13);
+    font-weight: bold;
+    color: $black;
+    margin-bottom: rem(10);
+  }
+
+  &-participants-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+  }
+
+  &-participants-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: rem(3);
+    margin-bottom: rem(3);
+  }
+
+  &-participants-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .cui-apps-profile-wall-item {
+    border-bottom: none;
+  }
+
+  .cui-apps-profile-wall-content {
+    border-radius: 5px;
+    border: 1px solid rgba($black, 0.15);
+  }
+
+  &-comment-head {
+    padding-top: rem(10);
+    padding-left: rem(15);
+    padding-right: rem(15);
+    padding-bottom: rem(10);
+    background-color: rgba($gray-lighten-more, 0.7);
+    border-bottom: 1px solid rgba($black, 0.15);
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 11px;
+      right: 100%;
+      left: -16px;
+      display: block;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      border-color: transparent;
+      border-style: solid solid outset;
+    }
+
+    &::before {
+      border-width: 8px;
+      border-right-color: #d1d5da;
+    }
+
+    &::after {
+      margin-top: 1px;
+      margin-left: 2px;
+      border-width: 7px;
+      border-right-color: #f6f8fa;
+    }
+
+    &-empty {
+      background-color: transparent;
+      padding: 0;
+      border-bottom: none;
+
+      &::after {
+        border-right-color: $white;
+      }
+    }
+  }
+
+  &-comment-content {
+    padding: rem(15);
+  }
+
+  &-comment-bottom {
+    padding-left: rem(15);
+    padding-right: rem(15);
+    padding-bottom: rem(10);
+  }
+
+  &-add-comment {
+    .cui-github-discuss-comment-content {
+      padding: 0;
+      padding-bottom: rem(5);
+    }
+
+    .note-editor {
+      border: none;
+    }
+    .note-editor.note-frame .note-editing-area .note-editable {
+      padding: rem(15);
+    }
+
+    .note-style {
+      .dropdown-menu.dropdown-style {
+        min-width: 160px;
+      }
+
+      pre {
+        padding: rem(5);
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .note-color {
+      .btn-group {
+        display: inline-block;
+      }
+    }
+  }
+}

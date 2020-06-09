@@ -1,0 +1,30 @@
+@import 'mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  "LAYOUT" STYLES */
+
+.cui-layout {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  min-height: 100vh;
+  min-width: 0;
+
+  &.cui-layout-has-sider {
+    flex-direction: row;
+  }
+
+  &-content {
+    flex: auto;
+    min-height: 0;
+  }
+
+  &-footer {
+    flex: 0 0 auto;
+  }
+
+  &-header {
+    flex: 0 0 auto;
+    height: 64px;
+  }
+}

@@ -1,0 +1,210 @@
+@import '../../../core/common/css/mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/* THEMES: ORANGE */
+
+$color1: #fff;
+$color2: #74708d;
+$color3: #e4e9f0;
+$color4: #e4e9f0;
+$color5: #f39834;
+$color6: #c7c5d1;
+
+body.cui-theme {
+  &-orange {
+    // "cui-topbar" module styles
+    .cui-topbar {
+      background: lighten($color5, 35%);
+
+      &-search input {
+        background: $white;
+      }
+    }
+
+    // "cui-menu-left" module styles
+    .cui-menu-left {
+      &-inner {
+        background: $color1;
+        border-right: 1px solid $gray-border;
+      }
+
+      &-trigger {
+        background: $gray-border;
+      }
+
+      &-logo {
+        background: $color5;
+      }
+
+      &-item {
+        > a {
+          color: $color2;
+        }
+
+        &-active {
+          > a {
+            background: $color5 !important;
+            color: $white !important;
+
+            &:before,
+            &:after {
+              background: $white !important;
+            }
+
+            > .cui-menu-left-icon {
+              color: $color1 !important;
+            }
+          }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          > a {
+            background: lighten($color5, 35%);
+
+            &:before,
+            &:after {
+              background: $white !important;
+            }
+
+            > .cui-menu-left-icon {
+              color: $color6;
+            }
+          }
+        }
+      }
+
+      &-icon {
+        color: lighten($color2, 35%);
+      }
+
+      &-divider {
+        background: $color3;
+      }
+
+      &-submenu {
+        &-toggled.cui-menu-left-item {
+          background: lighten($color3, 5%);
+          color: $color1 !important;
+
+          > a {
+            color: $white !important;
+            background: $color5 !important;
+            .cui-menu-left-icon {
+              color: $white !important;
+            }
+
+            &:before,
+            &:after {
+              background: $white !important;
+            }
+          }
+        }
+
+        > .cui-menu-left-list {
+          background: lighten($color3, 5%);
+        }
+
+        &.cui-menu-left-item > a:after {
+          border-color: transparent lighten($color2, 35%) transparent transparent;
+        }
+      }
+
+      .jspScrollable .jspDrag:after {
+        background: lighten($color2, 40%) !important;
+      }
+    }
+
+    // "cui-menu-top" module styles
+    .cui-menu-top {
+      &-inner {
+        background: $color1;
+        border-right: 1px solid $gray-border;
+      }
+
+      &-trigger {
+        background: $gray-border;
+      }
+
+      &-logo {
+        background: $color5;
+      }
+
+      &-item {
+        > a {
+          color: $color2;
+        }
+
+        &-active {
+          > a {
+            background: $color5 !important;
+            color: $white !important;
+
+            &:before,
+            &:after {
+              background: $white !important;
+            }
+
+            > .cui-menu-top-icon {
+              color: $color1 !important;
+            }
+          }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          > a {
+            background: lighten($color5, 35%);
+
+            &:before,
+            &:after {
+              background: $white !important;
+            }
+
+            > .cui-menu-top-icon {
+              color: $color6;
+            }
+          }
+        }
+      }
+
+      &-icon {
+        color: lighten($color2, 35%);
+      }
+
+      &-divider {
+        background: $color3;
+      }
+
+      &-submenu {
+        &-toggled.cui-menu-top-item {
+          background: lighten($color3, 5%);
+          color: $color1 !important;
+
+          > a {
+            color: $white !important;
+            background: $color5 !important;
+            .cui-menu-left-icon {
+              color: $white !important;
+            }
+
+            &:before,
+            &:after {
+              background: $white !important;
+            }
+          }
+        }
+
+        > .cui-menu-top-list {
+          background: lighten($color3, 5%);
+        }
+
+        &.cui-menu-top-item > a:after {
+          border-color: transparent lighten($color2, 35%) transparent transparent;
+        }
+      }
+    }
+  }
+}

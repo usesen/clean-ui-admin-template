@@ -1,0 +1,41 @@
+@import '../../../core/common/css/mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/* MODAL */
+
+.modal {
+  .modal-content {
+    border: none;
+  }
+  .modal-header {
+    .close {
+      background: $white;
+    }
+  }
+  &.modal-size-small {
+    .modal-dialog {
+      max-width: 300px;
+      width: auto;
+      @media (max-width: $xs-max-width) {
+        max-width: none;
+      }
+    }
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  &.modal-size-large {
+    .modal-dialog {
+      max-width: 980px;
+      width: auto;
+    }
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.modal-backdrop {
+  background: $black;
+  &.in {
+    opacity: 0.3;
+  }
+}
