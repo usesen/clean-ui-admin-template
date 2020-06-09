@@ -1,0 +1,91 @@
+@import '@/assets/styles/mixins.scss';
+
+.pricingTable {
+  width: 100%;
+  display: flex;
+  padding: rem(40) 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pricingTableItem {
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  @media (max-width: $xl-max-width) {
+    border-left: none;
+    border-radius: 0;
+    flex-basis: 50%;
+    &[class*="extended"] {
+      padding: rem(20);
+    }
+
+    &:first-child {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+    }
+
+    &:last-child {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+    }
+  }
+
+  @media (max-width: $sm-max-width) {
+    flex-basis: 100%;
+    margin-bottom: rem(20);
+    border-left: 1px solid $gray-border;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    &:first-child {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+
+    &:last-child {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+  }
+}
+
+//::ng-deep {
+//  .item {
+//    border-left: none;
+//    -webkit-border-radius: 0;
+//    -moz-border-radius: 0;
+//    border-radius: 0;
+//  }
+//}
+
+//&:first-child {
+//  ::ng-deep {
+//    .item {
+//      border-left: 1px solid $gray-border;
+//      border-radius: 6px 0 0 6px;
+//      @media (max-width: $md-max-width) {
+//        -webkit-border-radius: 0;
+//        -moz-border-radius: 0;
+//        border-radius: 0;
+//        border-left: none;
+//      }
+//    }
+//  }
+//  &:last-child {
+//    ::ng-deep {
+//      .item {
+//        border-radius: 0 6px 6px 0;
+//        @media (max-width: $md-max-width) {
+//          -webkit-border-radius: 0;
+//          -moz-border-radius: 0;
+//          border-radius: 0;
+//        }
+//      }
+//    }
+//  }
+//}

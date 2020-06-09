@@ -1,0 +1,16 @@
+@import '@/assets/styles/mixins.scss';
+
+.bitcoinPrice {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  @media (max-width: 1300px) {
+    display: none !important;
+  }
+}
+
+.bitcoinGraph {
+  margin: 0 8px;
+  position: relative;
+  top: 7px;
+}

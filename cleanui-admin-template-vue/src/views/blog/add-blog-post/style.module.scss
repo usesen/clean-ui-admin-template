@@ -1,0 +1,37 @@
+@import '@/assets/styles/mixins.scss';
+
+.addPost {
+  max-width: rem(1000);
+  margin: 0 auto;
+
+  :global(.ant-form-item) {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  margin-bottom: 0;
+  display: block;
+}
+
+.submit {
+  margin-bottom: rem(24);
+}
+
+.editor {
+  border: 1px solid $gray-border;
+
+  :global(.ql-toolbar.ql-snow) {
+    border: none;
+  }
+
+  :global(.ql-container.ql-snow) {
+    border: none;
+    height: 300px;
+  }
+
+  :global(.ql-editor) {
+    border: none;
+    border-top: 1px solid $gray-border;
+  }
+}

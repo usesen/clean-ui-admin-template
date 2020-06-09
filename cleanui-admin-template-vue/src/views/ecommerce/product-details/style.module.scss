@@ -1,0 +1,276 @@
+@import '@/assets/styles/mixins.scss';
+
+.item {
+  position: relative;
+
+  :global(.slick-list) {
+    border: 1px solid $gray-border;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: rem(20);
+  }
+
+  :global(.slick-slide){
+    text-align: center;
+    height: rem(300);
+
+    img {
+      display: inline-block;
+      transition: transform 0.4s ease-in-out;
+      height: rem(300);
+      max-width: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+    }
+  }
+
+  :global(.slick-dots) {
+    position: relative;
+    bottom: 0;
+    height: auto;
+    text-align: left;
+
+    li {
+      a {
+        display: inline-block;
+        width: rem(100);
+        height: rem(100);
+        border: 1px solid $gray-border;
+        border-radius: rem(5);
+        overflow: hidden;
+        margin-right: rem(10);
+        margin-bottom: rem(10);
+      }
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+
+      &:last-child {
+        a {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  :global(.slick-dots .slick-active) {
+    a {
+      border-color: $primary;
+    }
+  }
+}
+
+.status {
+  position: absolute;
+  top: rem(20);
+  left: rem(20);
+  border-width: rem(25);
+  border-style: solid;
+  width: 0;
+  height: 0;
+  border-color: $danger transparent transparent $danger;
+  z-index: 10;
+}
+
+.statusTitle {
+  position: relative;
+  top: rem(-19);
+  left: rem(-18);
+  display: inline-block;
+  transform: rotate(-45deg);
+  color: $white !important;
+  text-transform: uppercase;
+  font-size: rem(10);
+  font-weight: bold;
+}
+
+.like {
+  position: absolute;
+  z-index: 100;
+  top: rem(20);
+  right: rem(20);
+  font-size: rem(26);
+  cursor: pointer;
+  color: $black-lighten-more;
+  i {
+    transition: all 0.2s ease-in-out;
+    opacity: 0.2;
+    color: $text;
+  }
+  &:hover {
+    i {
+      opacity: 0.4;
+    }
+  }
+}
+
+.sizes {
+  font-style: normal;
+  margin: rem(15) 0 rem(10);
+
+  span {
+    display: inline-block;
+    margin-right: rem(5);
+    border: 1px solid $gray;
+    line-height: rem(14);
+    border-radius: rem(20);
+    padding: rem(3);
+    min-width: rem(30);
+    text-align: center;
+    margin-bottom: rem(5);
+  }
+}
+
+.descr {
+  margin-top: rem(10);
+}
+
+.option {
+  margin-bottom: rem(20);
+
+  &:last-child {
+    margin-bottom: rem(5);
+  }
+
+  .sizes {
+    margin: 0;
+  }
+}
+
+.optionTitle {
+  color: $text;
+  margin-bottom: rem(10);
+}
+
+.price {
+  font-size: rem(31);
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.priceBefore {
+  display: inline-block;
+  margin-left: rem(10);
+  font-size: rem(18);
+  text-decoration: line-through;
+  color: $text;
+  position: relative;
+  top: rem(-3);
+  font-weight: normal;
+}
+
+.sku {
+  float: right;
+  color: $text;
+  text-align: right;
+  margin-top: rem(3);
+}
+
+.rating {
+  margin-top: rem(5);
+  color: $orange;
+  font-size: rem(18);
+}
+
+.controls {
+  .btn {
+    padding: rem(15) rem(40) !important;
+  }
+  .btn-link {
+    margin-top: rem(3);
+    padding: rem(15) rem(15) !important;
+  }
+}
+
+.mainTitle {
+  margin-top: rem(20);
+  color: $text-darken-more;
+}
+
+.info {
+  margin-top: rem(40);
+}
+
+.breadcrumbs {
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 0;
+  background: none;
+  border-radius: 0.25rem;
+
+  :global(.ant-breadcrumb) {
+    & > span {
+      &:first-child {
+        a {
+          &:before {
+            display: none;
+          }
+        }
+      }
+      &:last-child {
+        a {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+    a {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -10px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 39px 10px;
+        border-color: transparent transparent transparent #eef0f4;
+        transition: all 0.3s;
+      }
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 39px 10px 0 0;
+        border-color: transparent #eef0f4 transparent transparent;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+.breadcrumbItem {
+  display: inline-block;
+  margin-right: rem(23);
+  padding: 9px 30px;
+  position: relative;
+  background: #eef0f4;
+  font-size: 14px;
+  transition: background 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: #08f;
+    a {
+      color: #fff;
+      &:after {
+        border-color: transparent transparent transparent #08f;
+      }
+      &:before {
+        border-color: transparent #08f transparent transparent;
+      }
+    }
+  }
+}
